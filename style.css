@@ -322,7 +322,7 @@ body {
     justify-content: center;
     z-index: 1000;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .terminal {
@@ -359,8 +359,43 @@ body {
     flex-direction: column;
 }
 
-.prompt, .typing-text, .cursor {
-    margin-top: 4px;
+.login {
+color: #a9b1d6;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.command-line {
+    display: flex;
+    align-items: center;
+}
+
+.tilde {
+    color: rgba(65, 210, 192, 1);
+    margin-right: 8px;
+}
+
+.prompt {
+    color: rgba(210, 136, 184, 1);
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.typing-text {
+color: #a9b1d6;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.cursor {
+    color: #a9b1d6;
+    animation: blink 1.5s step-end infinite;
+    margin-left: 0;
+    display: inline-block;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 .terminal-enter {
@@ -375,7 +410,6 @@ body {
     font-family: "MesloLGS Nerd Font Mono", monospace;
     font-size: 14px;
     cursor: pointer;
-    transition: all 0.2s ease;
     margin-top: auto;
 }
 
@@ -398,27 +432,4 @@ body {
     transform: translateX(-50%);
     color: #a9b1d6;
     font-size: 13px;
-}
-
-.tilde {
-    color: rgba(65, 210, 192, 1);
-}
-
-.prompt {
-    color: rgba(210, 136, 184, 1);
-    margin-right: 8px;
-}
-
-.typing-text {
-    margin-left: 0;
-}
-
-.cursor {
-    color: #a9b1d6;
-    animation: blink 1s step-end infinite;
-    margin-left: 0px;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
 }

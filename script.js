@@ -193,9 +193,8 @@ async function handleEntryScreen() {
     const mainContent = document.getElementById('neovim-config');
     const typingElement = document.querySelector('.typing-text');
 
-    // Type 'nvim' command faster
-    await typeText('nvim', typingElement, 120);
-    
+    await typeText('nvim', typingElement, 200);
+
     // Wait for enter key or button click
     await waitForEnter();
     
@@ -223,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Show message in the container's place
                     const message = document.createElement('div');
                     message.style.cssText = 'display:flex;justify-content:center;align-items:center;height:100vh;background:#1a1b26;color:#a9b1d6;font-family:monospace;';
-                    message.textContent = 'Terminal closed, please refresh the page.';
+                    message.textContent = 'Terminal closed, please relaunch.';
                     document.body.appendChild(message);
                 }
             });
