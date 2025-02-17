@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     container.style.display = 'none';
                     // Show message in the container's place
                     const message = document.createElement('div');
-                    message.style.cssText = 'display:flex;justify-content:center;align-items:center;height:100vh;background:#1a1b26;color:#a9b1d6;font-family:monospace;';
+                    message.style.cssText = 'display:flex;justify-content:center;align-items:center;height:100vh;background:#1d1c271;color:#a9b1d6;font-family:monospace;';
                     message.textContent = 'Terminal closed, please relaunch.';
                     document.body.appendChild(message);
                 }

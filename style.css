@@ -41,24 +41,27 @@ body {
     position: relative;
 }
 
-#nvim-logo {
+#greet-art {
     color: rgba(127, 186, 195, 1);
-    font-size: 14px;
+    font-size: min(16px, 3vw);
     line-height: 1;
-    white-space: block;
-    display: block;
+    white-space: pre;
+    display: inline-block;
     font-family: monospace;
     letter-spacing: 0;
-    transform: scale(1, 1.4) translate(-52%, 0);
-    transform-origin: left center;
-    max-width: 600px;
-    width: 100%;
-    padding: 20px;
+    transform: scale(1, 1.4);
+    transform-origin: center;
+    max-width: none;
+    width: auto;
     box-sizing: border-box;
-    position: absolute;
-    top: 40px;
+    position: relative;
+    top: 100px;
     left: 50%;
+    transform: translateX(-50%) scale(1, 1.4);
     text-align: center;
+    z-index: 2;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .command-menu {
@@ -67,8 +70,10 @@ body {
     gap: 0.5em;
     margin: 2em auto;
     width: 100%;
-    max-width: 600px;
-    margin-top: 400px;
+    max-width: 400px;
+    margin-top: calc(20vh + 40px);
+    position: relative;
+    z-index: 1;
 }
 
 .menu-item {
@@ -78,7 +83,7 @@ body {
     padding: 0.75em;
     color: rgba(222, 221, 245, 1);
     cursor: pointer;
-    font-size: 0.8em;
+    font-size: 0.9em;
     border-radius: 4px;
 }
 
@@ -104,11 +109,18 @@ body {
 
 #hello-text {
     color: #565f89;
+    text-align: center;
     margin-top: 2em;
 }
 
 #lualine {
     background-color: #24283b;
+    color: #a9b1d6;
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+
     color: #a9b1d6;
     padding: 0.5em 1em;
     font-size: 0.9em;
@@ -326,7 +338,8 @@ body {
 }
 
 .terminal {
-    width: 600px;
+    width: calc(100% - 40px);
+    max-width: 600px;
     min-height: 150px;
     height: min(400px, 80vh);
     background-color: #1a1b26;
@@ -335,6 +348,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
+    margin: 20px;
 }
 
 .terminal-header {
@@ -342,13 +356,13 @@ body {
     background-color: #1f2335;
     display: flex;
     align-items: center;
-    padding: 0 8px;
+    padding: 0 12px;
     position: relative;
     flex-shrink: 0;
 }
 
 .terminal-content {
-    padding: 16px;
+    padding: 20px;
     font-family: "MesloLGS Nerd Font Mono", monospace;
     font-size: 14px;
     line-height: 1.5;
@@ -359,11 +373,7 @@ body {
     flex-direction: column;
 }
 
-.login {
-color: #a9b1d6;
-    margin-bottom: 8px;
-    display: block;
-}
+.login { color: #a9b1d6; display: block; font-size: 0.9em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 
 .command-line {
     display: flex;
@@ -382,7 +392,7 @@ color: #a9b1d6;
 }
 
 .typing-text {
-color: #a9b1d6;
+    color: #a9b1d6;
     display: inline-block;
     margin-left: 8px;
 }
