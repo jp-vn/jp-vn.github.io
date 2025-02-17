@@ -218,26 +218,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.close-button').forEach(button => {
             button.addEventListener('click', () => {
                 const container = button.closest('#entry-screen, #neovim-config');
-                // Close the webpage if we're in the terminal
-                window.close();
-                // Fallback if window.close() is blocked
-                setTimeout(() => {
-                    document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#1a1b26;color:#a9b1d6;font-family:monospace;">Terminal closed. Please refresh the page.</div>';
-                }, 100);
-            });
-        });
-
-        // Minimize buttons
-        document.querySelectorAll('.minimize-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const container = button.closest('#entry-screen, #neovim-config');
                 if (container) {
-                    container.style.transform = 'scale(1)';
-                    container.style.opacity = '1';
-                    setTimeout(() => {
-                        container.style.transform = 'scale(1)';
-                        container.style.opacity = '1';
-                    }, 300);
+                    container.style.display = 'none';
+                    // Show message in the container's place
+                    const message = document.createElement('div');
+                    message.style.cssText = 'display:flex;justify-content:center;align-items:center;height:100vh;background:#1a1b26;color:#a9b1d6;font-family:monospace;';
+                    message.textContent = 'Terminal closed, please refresh the page.';
+                    document.body.appendChild(message);
                 }
             });
         });
