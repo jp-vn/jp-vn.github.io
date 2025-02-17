@@ -1,0 +1,429 @@
+@font-face {
+    font-family: "MesloLGS Nerd Font Mono";
+    src: url("fonts/MesloLGS-NF-Regular.woff2") format("woff2"),
+         url("fonts/MesloLGS-NF-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: "MesloLGS Nerd Font Mono", monospace !important;
+    background-color: rgba(27, 25, 38, 1);
+    color: rgba(222, 221, 245, 1);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#neovim-config {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+#content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#alpha-dashboard {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#nvim-logo {
+    color: rgba(127, 186, 195, 1);
+    font-size: 14px;
+    line-height: 1;
+    white-space: block;
+    display: block;
+    font-family: monospace;
+    letter-spacing: 0;
+    transform: scale(1, 1.4) translate(-50%, 0);
+    transform-origin: left center;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    text-align: center;
+}
+
+.command-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin: 2em auto;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 400px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 0.75em;
+    color: rgba(222, 221, 245, 1);
+    cursor: pointer;
+    font-size: 0.8em;
+    border-radius: 4px;
+}
+
+.menu-item:hover {
+    background-color: #24283b;
+}
+
+.menu-item .icon {
+    width: 1.5em;
+    text-align: center;
+    font-family: "MesloLGS Nerd Font Mono", monospace !important;
+}
+
+.menu-item .label {
+    flex: 1;
+    text-align: left;
+    color: #a9b1d6;
+}
+
+.menu-item .shortcut {
+    color: #565f89;
+}
+
+#hello-text {
+    color: #565f89;
+    margin-top: 2em;
+}
+
+#lualine {
+    background-color: #24283b;
+    color: #a9b1d6;
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+}
+
+.mode {
+    background-color: #7aa2f7;
+    color: #1a1b26;
+    padding: 0 0.5em;
+    font-weight: bold;
+}
+
+.branch {
+    color: #7aa2f7;
+    margin-left: 0.5em;
+}
+
+.filename, .modified {
+    color: #565f89;
+    margin-left: 0.5em;
+}
+
+.right-align {
+    margin-left: auto;
+    display: flex;
+    gap: 1em;
+    color: #565f89;
+}
+
+.hidden {
+    display: none;
+}
+
+#editor-area {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1b26;
+    color: #a9b1d6;
+    border: none;
+    padding: 10px;
+    font-family: 'MesloLGS Nerd Font Mono', monospace;
+}
+
+#window-header {
+    background-color: rgba(27, 25, 38, 1);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    -webkit-app-region: drag;
+    user-select: none;
+}
+
+.traffic-lights {
+    display: flex;
+    gap: 8px;
+    margin-right: 12px;
+    -webkit-app-region: no-drag;
+}
+
+.traffic-lights button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.traffic-lights button:hover {
+    opacity: 0.8;
+}
+
+.close-button {
+    background-color: #ff5f57;
+}
+
+.minimize-button {
+    background-color: #febc2e;
+}
+
+.fullscreen-button {
+    background-color: #28c840;
+}
+
+.window-title {
+    text-align: center;
+    font-size: 13px;
+    top: 8px;
+    left: 50%;
+}
+
+.window-title {
+    position: absolute;
+    left: 50%;
+    top: 8px; /* Adjusted for vertical alignment */
+    z-index: 2;
+    pointer-events: none;
+}
+
+#tab-bar {
+    display: flex;
+    background-color: #1a1b26;
+    border-bottom: 1px solid #2f3341;
+    padding: 0 8px;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #24283b;
+    border-right: 1px solid #2f3341;
+    min-width: 100px;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: #1a1b26;
+    border-bottom: 2px solid #7aa2f7;
+}
+
+.tab-name {
+    color: #a9b1d6;
+    font-size: 13px;
+    margin-right: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tab-close {
+    background: none;
+    border: none;
+    color: #565f89;
+    font-size: 16px;
+    padding: 0 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-close:hover {
+    color: #a9b1d6;
+}
+
+/* File Tree Styles */
+#file-tree {
+    background-color: #1a1b26;
+    padding: 1rem;
+    width: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #2f3341;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#file-tree ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: #a9b1d6;
+    transition: background-color 0.2s;
+}
+
+.file-item:hover {
+    background-color: #24283b;
+}
+
+.file-item .icon {
+    margin-right: 1rem;
+    font-size: 1.2em;
+    color: #7aa2f7;
+    min-width: 20px;
+    text-align: center;
+    font-family: "MesloLGS Nerd Font Mono", monospace !important;
+}
+
+.file-item .text {
+    font-size: 0.875em;
+}
+
+/* Update icon styles */
+.icon {
+    font-family: "MesloLGS Nerd Font Mono", monospace !important;
+}
+
+/* Update body font */
+body {
+    font-family: "MesloLGS Nerd Font Mono", monospace !important;
+}
+
+#entry-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(27, 25, 38, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.terminal {
+    width: 600px;
+    min-height: 150px;
+    height: min(400px, 80vh);
+    background-color: #1a1b26;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    height: 28px;
+    background-color: #1f2335;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.terminal-content {
+    padding: 16px;
+    font-family: "MesloLGS Nerd Font Mono", monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #a9b1d6;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.prompt, .typing-text, .cursor {
+    margin-top: 4px;
+}
+
+.terminal-enter {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(122, 162, 247, 0.1);
+    border: 1px solid rgba(122, 162, 247, 0.3);
+    color: #7aa2f7;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: "MesloLGS Nerd Font Mono", monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: auto;
+}
+
+.terminal-enter:hover {
+    background: rgba(122, 162, 247, 0.2);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.traffic-lights {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #a9b1d6;
+    font-size: 13px;
+}
+
+.tilde {
+    color: rgba(65, 210, 192, 1);
+}
+
+.prompt {
+    color: rgba(210, 136, 184, 1);
+    margin-right: 8px;
+}
+
+.typing-text {
+    margin-left: 0;
+}
+
+.cursor {
+    color: #a9b1d6;
+    animation: blink 1s step-end infinite;
+    margin-left: 0px;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
