@@ -49,15 +49,15 @@ body {
     display: block;
     font-family: monospace;
     letter-spacing: 0;
-    transform: scale(1, 1.4) translate(-50%, 0);
+    transform: scale(1, 1.4) translate(-52%, 0);
     transform-origin: left center;
     max-width: 600px;
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
     position: absolute;
-    left: 50%;
     top: 40px;
+    left: 50%;
     text-align: center;
 }
 
@@ -197,16 +197,11 @@ body {
 }
 
 .window-title {
-    text-align: center;
     font-size: 13px;
-    top: 8px;
-    left: 50%;
-}
-
-.window-title {
     position: absolute;
     left: 50%;
-    top: 8px; /* Adjusted for vertical alignment */
+    top: 8px;
+    transform: translateX(-50%);
     z-index: 2;
     pointer-events: none;
 }

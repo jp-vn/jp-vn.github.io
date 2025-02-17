@@ -178,7 +178,6 @@ function waitForEnter() {
         
         document.addEventListener('keydown', handleEnter);
         
-        // For mobile users
         const enterButton = document.querySelector('.terminal-enter');
         if (enterButton) {
             enterButton.addEventListener('click', () => {
